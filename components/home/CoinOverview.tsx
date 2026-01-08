@@ -1,11 +1,18 @@
+import { CoinOverviewFallback } from "@/components/home/fallback";
 import { fetcher } from "@/lib/coingecko.action";
 import { formatCurrency } from "@/lib/utils";
 import Image from "next/image";
 
 const CoinOverview = async () => {
-  const coin = await fetcher<CoinDetailsData>("/coins/bitcoin", {
-    dex_pair_format: "symbol",
-  });
+  let coin;
+  try {
+    coin = await fetcher<CoinDetailsData>("/coins/bitcoin", {
+      dex_pair_format: "symbol",
+    });
+  } catch (e) {
+    console.error("Error fetching coin overview:", e);
+    return <CoinOverviewFallback />;
+  }
 
   return (
     <div className="" id="coin-overview">
