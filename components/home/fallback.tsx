@@ -1,6 +1,4 @@
-import React from "react";
 import DataTable from "@/components/DataTable";
-import { cn } from "@/lib/utils";
 
 export const CoinOverviewFallback = () => {
   return (
