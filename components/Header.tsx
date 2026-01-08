@@ -21,7 +21,7 @@ const Header = () => {
           <p className="text-xl font-semibold">CoinSnipe</p>
         </div>
 
-        <nav>
+        <nav className="mb-4">
           <Link
             href="/"
             className={cn("nav-link", {
