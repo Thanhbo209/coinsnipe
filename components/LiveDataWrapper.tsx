@@ -1,15 +1,14 @@
 "use client";
 
+import { Separator } from "@/components/ui/separator";
 import CandlestickChart from "@/components/CandlestickChart";
 import { useCoinGeckoWebSocket } from "@/hooks/useCoinGeckoWebSocket";
 import DataTable from "@/components/DataTable";
 import { formatCurrency, timeAgo } from "@/lib/utils";
 import { useState } from "react";
 import CoinHeader from "@/components/CoinHeader";
-import { Separator } from "@/components/ui/separator";
 
 const LiveDataWrapper = ({
-  children,
   coinId,
   poolId,
   coin,

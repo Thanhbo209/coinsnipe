@@ -5,7 +5,7 @@ import qs from "query-string";
 const BASE_URL = process.env.COINGECKO_BASE_URL;
 const API_KEY = process.env.COINGECKO_API_KEY;
 
-if (!BASE_URL) throw new Error("Could not get base URL");
+if (!BASE_URL) throw new Error("Could not get base url");
 if (!API_KEY) throw new Error("Could not get api key");
 
 export async function fetcher<T>(
@@ -26,22 +26,18 @@ export async function fetcher<T>(
       "x-cg-api-key": API_KEY,
       "Content-Type": "application/json",
     } as Record<string, string>,
-    next: {
-      revalidate,
-    },
+    next: { revalidate },
   });
 
   if (!response.ok) {
-    if (response.status === 429) {
-      console.warn("Rate limit:", url);
-      return null as T;
-    }
     const errorBody: CoinGeckoErrorBody = await response
       .json()
       .catch(() => ({}));
 
     throw new Error(
-      `API Error: ${response.status}: ${errorBody.error || response.statusText}`
+      `API Error: ${response.status}: ${
+        errorBody.error || response.statusText
+      } `
     );
   }
 

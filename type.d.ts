@@ -1,4 +1,5 @@
 type OHLCData = [number, number, number, number, number];
+type OHLCResponse = OHLCData[];
 
 interface NextPageProps {
   params: Promise<{ [key: string]: string }>;
@@ -233,7 +234,7 @@ interface LiveDataProps {
   coinId: string;
   poolId: string;
   coin: CoinDetailsData;
-  coinOHLCData?: OHLCData[];
+  coinOHLCData: OHLCData[];
   children?: React.ReactNode;
 }
 
