@@ -20,12 +20,15 @@ const CoinOverview = async () => {
       <div className="" id="coin-overview">
         <CandlestickChart data={coinOHLCData} coinId="bitcoin">
           <div className="header pt-2">
-            <Image
-              src={coin.image.large}
-              alt={coin.name}
-              width={56}
-              height={56}
-            />
+            {coin && (
+              <Image
+                src={coin.image.large}
+                alt={coin.name}
+                width={56}
+                height={56}
+              />
+            )}
+
             <div className="info">
               <p>
                 {coin.name} / {coin.symbol.toUpperCase()}
